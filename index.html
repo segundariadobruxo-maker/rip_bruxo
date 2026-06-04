@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+    <title>🧙 BRUXO SCRIPTS</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: linear-gradient(135deg, #0a0a1a 0%, #1a0a2e 100%);
+            font-family: 'Poppins', -apple-system, 'Segoe UI', Roboto, sans-serif;
+            color: white;
+            padding: 20px;
+            text-align: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .logo {
+            font-size: 48px;
+            font-weight: bold;
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            color: #aaa;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        /* BOTÃO DO DISCORD */
+        .discord-button {
+            background: #5865F2;
+            color: white;
+            padding: 12px 25px;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 25px;
+            transition: 0.3s;
+            border: none;
+            cursor: pointer;
+            font-size: 16px;
+        }
+
+        .discord-button:hover {
+            background: #4752c4;
+            transform: scale(1.02);
+        }
+
+        .count {
+            background: rgba(168,85,247,0.3);
+            padding: 5px 15px;
+            border-radius: 20px;
+            font-size: 13px;
+            display: inline-block;
+            margin-bottom: 20px;
+        }
+
+        .script-list {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .script-item {
+            background: rgba(255,255,255,0.08);
+            backdrop-filter: blur(10px);
+            border-radius: 20px;
+            padding: 18px;
+            text-align: left;
+            border: 1px solid rgba(168,85,247,0.3);
+            transition: 0.3s;
+        }
+
+        .script-item:hover {
+            border-color: rgba(168,85,247,0.8);
+            transform: translateY(-2px);
+        }
+
+        .script-name {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 12px;
+            color: #a855f7;
+            word-break: break-word;
+        }
+
+        .script-code {
+            background: #0a0a1a;
+            padding: 12px;
+            border-radius: 12px;
+            font-family: monospace;
+            font-size: 11px;
+            word-break: break-all;
+            margin-bottom: 12px;
+            border: 1px solid #2a2a4a;
+            line-height: 1.4;
+        }
+
+        .copy-btn {
+            background: linear-gradient(135deg, #a855f7, #ec4899);
+            border: none;
+            padding: 10px 20px;
+            border-radius: 10px;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+            width: 100%;
+            max-width: 150px;
+        }
+
+        .copy-btn:active {
+            transform: scale(0.97);
+        }
+
+        .footer {
+            margin-top: 40px;
+            font-size: 12px;
+            color: #666;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="logo">🧙 BRUXO SCRIPTS</div>
+        <div class="subtitle">Clique em COPIAR para copiar o script</div>
+
+        <!-- BOTÃO DO DISCORD -->
+        <a href="https://discord.gg/VxNyq78x6" target="_blank" class="discord-button">
+            💬 ENTRAR NO DISCORD
+        </a>
+
+        <div class="count">📦 36 SCRIPTS DISPONÍVEIS</div>
+
+        <div class="script-list" id="script-list"></div>
+
+        <div class="footer">
+            <p>🧙 BRUXO SCRIPTS - 2026</p>
+            <p>✅ Clique em COPIAR → Cole no executor (Delta, Arceus, etc.)</p>
+        </div>
+    </div>
+
+    <script>
+        const scripts = [
+            { name: "🎯 BRUXO - HUB COMPLETO", code: 'loadstring(game:HttpGet("https://pastebin.com/raw/U7untKdM", true))()' },
+            { name: "⚡ OTIMIZADOR UNIVERSAL", code: 'loadstring(game:HttpGet("https://pastebin.com/raw/e2gj7BPb", true))()' },
+            { name: "📍 TELEPORTE UI", code: 'loadstring(game:HttpGet("https://pastebin.com/raw/HByXvRjk", true))()' },
+            { name: "🌑 SHADOW BYPASSER", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/aleksmago1/Shadowbypasser/refs/heads/main/Shadow-hub-loader.txt"))()' },
+            { name: "🟣 RUBIS HUB", code: 'loadstring(game:HttpGet(\'https://api.rubis.app/v2/scrap/wBNEkpigM0J1y5lV/raw\', true))()' },
+            { name: "⚔️ TBO SCRIPT", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/cool5013/TBO/main/TBOscript"))()' },
+            { name: "👊 JUJUTSU YUJI KOKUSEN", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ggab2351-stack/Jjs/refs/heads/main/obfuscated_script-1770002780541.lua.txt"))()' },
+            { name: "🍍 DEV NIGHTMYSTIC", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Dev-NightMystic/Bloxfruits/refs/heads/main/Script.lua"))()' },
+            { name: "🌬️ AIRFLOW SCRIPT", code: 'loadstring(game:HttpGet("https://airflowscript.com/loader"))()' },
+            { name: "🔮 KODAMO LOADER", code: 'loadstring(game:HttpGet("https://api.kodamo.net/loader/fxbpontv5v9fy82ycrd9"))()' },
+            { name: "✋ TAPA PERFEITO", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/FindWhoSlapped"))()' },
+            { name: "💀 FBLITE V5", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/FabinScriptsHub/FBLITEv5/refs/heads/main/Fblitev5(UPD)"))()' },
+            { name: "🦅 ASUS HUB", code: 'local AsusHub = "https://asus-hub.vercel.app/loader.lua"\nloadstring(game:HttpGet(AsusHub))(...)' },
+            { name: "🎮 RBLX SCRIPT HUB", code: 'loadstring(game:HttpGet("https://api.rblxscripthub.com/Flick"))()' },
+            { name: "🗡️ SILENT ASSASSINS", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/XUANVNPRO/silentassassins/refs/heads/main/silentassassins.lua"))()' },
+            { name: "🔫 RIVAIS AIMBOT", code: 'loadstring(game:HttpGet("https://rawscripts.net/raw/RIVALS-Aimbot-no-banned-yes-sure-102092"))()' },
+            { name: "🌊 ESCAPE TSUNAMI", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/gumanba/Scripts/main/EscapeTsunamiForBrainrots"))()' },
+            { name: "⭐ ALPHAX LOADER", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/Jorgao01/AlphaxLoader/refs/heads/main/Loader"))()' },
+            { name: "🥊 KNOCKOUT", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/JNHHGaming/Knockout/refs/heads/main/Knockout",true))()' },
+            { name: "🌀 APOC HUB", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/ApocHub/ApocHub/refs/heads/main/ApocHubMain"))()' },
+            { name: "⚡ ZECK HUB", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/scriptshubzeck/Zeckhubv1/refs/heads/main/zeckhub"))()' },
+            { name: "💎 NICUSE LOADER", code: 'loadstring(game:HttpGet("https://loader.nicuse.xyz"))()' },
+            { name: "📦 PASTEFY", code: 'loadstring(game:HttpGet("https://pastefy.app/RMzBpenx/raw"))()' },
+            { name: "🔥 LEJAX SCRIPT", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/lejax7xmoreira/script/refs/heads/main/script.lua"))()' },
+            { name: "🛸 VECTOR HUB", code: 'loadstring(game:HttpGet("https://vectorhub.space"))()' },
+            { name: "🇵🇱 POLAND SCRIPT", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/gonnered/aHehshjzJsizkKksdbbIsisiobfuvated/refs/heads/main/POLAND"))()' },
+            { name: "📋 PASTEBIN RZK9XdtH", code: 'loadstring(game:HttpGet("https://pastebin.com/raw/RZK9XdtH"))()' },
+            { name: "📋 PASTEBIN u10iNJqu", code: 'loadstring(game:HttpGet("https://pastebin.com/raw/u10iNJqu"))()' },
+            { name: "👻 ACADEMIC", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/solarastuff/hbg/refs/heads/main/academic.lua"))()' },
+            { name: "🔧 DYNA FETCHY", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/DynaFetchy/Scripts/refs/heads/main/Loader.lua"))()' },
+            { name: "🔥 NULLFIRE", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/TeamNullFire/NullFire/main/loader.lua"))()' },
+            { name: "🏆 TSB (THE STRONGEST)", code: 'loadstring(game:HttpGet("https://raw.githubusercontent.com/weatherwess-lgtm/Gui-Lite/refs/heads/main/Tsb"))()' },
+            { name: "🎯 RIFTON TOP", code: 'loadstring(game:HttpGet("https://rifton.top/loader.lua"))()' },
+            { name: "🎯 RIFTON TOP (2)", code: 'loadstring(game:HttpGet("https://rifton.top/loader.lua"))()' }
+        ];
+
+        function carregarScripts() {
+            const container = document.getElementById('script-list');
+            container.innerHTML = '';
+            
+            scripts.forEach((script, index) => {
+                const item = document.createElement('div');
+                item.className = 'script-item';
+                
+                const name = document.createElement('div');
+                name.className = 'script-name';
+                name.textContent = (index + 1) + '. ' + script.name;
+                
+                const code = document.createElement('div');
+                code.className = 'script-code';
+                code.id = `code-${index}`;
+                code.textContent = script.code;
+                
+                const btn = document.createElement('button');
+                btn.className = 'copy-btn';
+                btn.textContent = '📋 COPIAR';
+                btn.onclick = function() { copiarScript(index); };
+                
+                item.appendChild(name);
+                item.appendChild(code);
+                item.appendChild(btn);
+                container.appendChild(item);
+            });
+        }
+
+        function copiarScript(index) {
+            const texto = scripts[index].code;
+            navigator.clipboard.writeText(texto).then(() => {
+                alert('✅ SCRIPT COPIADO! Cole no seu executor (Delta, Arceus, etc.)');
+            }).catch(() => {
+                alert('❌ Erro ao copiar. Copie manualmente.');
+            });
+        }
+
+        carregarScripts();
+    </script>
+</body>
+</html>
